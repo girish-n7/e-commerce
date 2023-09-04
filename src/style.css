@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* header */
+
+.header--container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px 15px 20px;
+  /* background-color: red; */
+}
+
+.header--head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header--title {
+  font-size: 1.6rem;
+}
+
+.header--nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 45px;
+  font-size: 1.2rem;
+  align-items: center;
+}
+
+.cart {
+  cursor: pointer;
+}
