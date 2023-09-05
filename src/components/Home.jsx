@@ -6,7 +6,7 @@ export default function Home() {
     { name: "MEN'S CLOTHING", img: "", route: "/products" },
     { name: "WOMEN'S CLOTHING", img: "", route: "/products" },
     { name: "ELECTRONICS", img: "", route: "/products" },
-    { name: "JEWELERY", img: "", route: "/products" },
+    { name: "JEWELLERY", img: "", route: "/products" },
   ];
 
   //map the above array into individual cards

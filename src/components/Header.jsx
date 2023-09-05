@@ -7,7 +7,7 @@ export default function Header() {
     { name: "MEN'S CLOTHING", route: "/products" },
     { name: "WOMEN'S CLOTHING", route: "/products" },
     { name: "ELECTRONICS", route: "/products" },
-    { name: "JEWELERY", route: "/products" },
+    { name: "JEWELLERY", route: "/products" },
   ];
 
   //map the above array into individual routes
