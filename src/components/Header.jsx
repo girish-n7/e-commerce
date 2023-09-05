@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 export default function Header() {
   //create array of navbar content
   let navContent = [
-    { name: "Home", Route: "/" },
-    { name: "Men's Clothing", Route: "/" },
-    { name: "Women's Clothing", Route: "/" },
-    { name: "Electronics", Route: "/" },
-    { name: "Jewelery", Route: "/" },
+    { name: "HOME", route: "/" },
+    { name: "MEN'S CLOTHING", route: "/products" },
+    { name: "WOMEN'S CLOTHING", route: "/products" },
+    { name: "ELECTRONICS", route: "/products" },
+    { name: "JEWELERY", route: "/products" },
   ];
 
   //map the above array into individual routes
@@ -19,16 +19,16 @@ export default function Header() {
     );
   });
   return (
-    <div className="header--container">
+    <header>
       <div className="header--head">
         <img alt="logo" className="header--logo"></img>
         <p className="header--title">Shopping</p>
       </div>
       <div className="header--nav">{navMap}</div>
       <div className="header--cart">
-        <img alt="cart" className="cart icon"></img>
+        <img alt="cart" className="cart icon" title="Go to cart"></img>
         <div className="header--cart_total"></div>
       </div>
-    </div>
+    </header>
   );
 }
