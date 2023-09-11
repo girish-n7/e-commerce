@@ -1,16 +1,10 @@
+/* eslint-disable react/prop-types */
+
 import CategoryCard from "./CategoryCard";
 
-export default function Home() {
-  //create an array containing card contents
-  let categoryCard = [
-    { name: "MEN'S CLOTHING", img: "", route: "/products" },
-    { name: "WOMEN'S CLOTHING", img: "", route: "/products" },
-    { name: "ELECTRONICS", img: "", route: "/products" },
-    { name: "JEWELLERY", img: "", route: "/products" },
-  ];
-
+export default function Home({ categoryContent }) {
   //map the above array into individual cards
-  let categoryMap = categoryCard.map((data) => {
+  let categoryMap = categoryContent.map((data) => {
     return (
       <CategoryCard
         key={data.name}
@@ -23,7 +17,7 @@ export default function Home() {
 
   return (
     <div className="home--container">
-      <p className="home--category">Shop by category:</p>
+      <p className="home--category">SHOP BY CATEGORY:</p>
       <div className="category--card__container">{categoryMap}</div>
     </div>
   );

@@ -41,6 +41,7 @@ header {
   align-items: center;
   padding: 15px 5%;
   background-color: var(--secondary);
+  z-index: 2;
 }
 
 .header--head {
@@ -72,6 +73,7 @@ header {
   width: 90%;
   margin: 70px auto;
   padding: 5px;
+  min-height: 70vh;
 }
 
 .home--category {
@@ -89,14 +91,14 @@ header {
   width: 22%;
   aspect-ratio: 3/2;
   border-radius: 10px;
-  box-shadow: 0px 0px 8px 0px grey;
+  box-shadow: 0px 0px 4px 0px grey;
   position: relative;
   cursor: pointer;
   transition: 0.1s;
 }
 
 .category--card:hover {
-  box-shadow: 0px 0px 10px 0px var(--accent);
+  box-shadow: 0px 0px 4px 1px var(--accent);
   transition: 0.2s;
   transform: scale(1.05);
 }
@@ -108,4 +110,68 @@ header {
   text-align: center;
   padding: 10px;
   width: 100%;
+}
+
+/* footer */
+
+footer {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  height: 30vh;
+  background-color: rgb(245, 245, 245);
+}
+
+.footer--left {
+  float: left;
+  width: 25%;
+  height: 50%;
+  display: flex;
+  margin: auto 0;
+  padding: 0 15px;
+}
+
+.footer--right {
+  float: right;
+  width: 75%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 15px;
+  font-size: 0.8rem;
+}
+
+.socials--container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer--categories__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer--title {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.footer--category {
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.footer--help__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer--help {
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.footer--product__help {
+  display: flex;
+  flex-direction: column;
 }
