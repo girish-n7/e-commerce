@@ -8,7 +8,7 @@ export default function CategoryCard({ name, img, category }) {
     <div
       className="category--card"
       style={{ backgroundImage: `url(${img})` }}
-      onClick={() => navigate(`/products/${category}`)}
+      onClick={() => navigate(`products/${category}`)}
     >
       <div className="category--card__content">{name}</div>
     </div>
