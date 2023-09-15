@@ -1,22 +1,19 @@
 /* eslint-disable react/prop-types */
 
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Footer({ categoryContent }) {
-  const navigate = useNavigate(); //to switch to respective page on click
-
   //map the category content into individual clickable <p>
   let categoryMap = categoryContent.map((item) => {
     return (
-      <p
-        className="footer--category"
-        key={item.name}
-        onClick={() => navigate(item.route)}
-      >
-        {item.name}
-      </p>
+      <Link to={`/products/${item.category}`} key={item.name}>
+        <p className="footer--category" key={item.name}>
+          {item.name}
+        </p>
+      </Link>
     );
   });
+
   return (
     <footer>
       <div className="footer--left">

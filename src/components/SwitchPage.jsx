@@ -16,7 +16,7 @@ export default function SwitchPage({ categoryContent }) {
         element={<Home categoryContent={categoryContent} />}
       />
       <Route exact path="/products/:category" element={<Products />} />
-      <Route exact path="/productPage/:data" element={<ProductPage />} />
+      <Route exact path="/productPage/:id" element={<ProductPage />} />
       <Route exact path="/cart" element={<Cart />} />
       <Route exact path="*" element={<Error />} />
     </Routes>

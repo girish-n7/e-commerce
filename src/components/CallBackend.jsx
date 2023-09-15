@@ -4,7 +4,7 @@ function allProducts() {
     redirect: "follow",
   };
 
-  return fetch("http://localhost:3000/", requestOptions);
+  return fetch("http://localhost:3000/all", requestOptions);
 }
 
 function getProductsByCategory(category) {
@@ -13,7 +13,7 @@ function getProductsByCategory(category) {
     redirect: "follow",
   };
 
-  return fetch(`http://localhost:3000/${category}`, requestOptions);
+  return fetch(`http://localhost:3000/category/${category}`, requestOptions);
 }
 
 function getProductById(id) {
@@ -22,7 +22,7 @@ function getProductById(id) {
     redirect: "follow",
   };
 
-  return fetch(`http://localhost:3000/${id}`, requestOptions);
+  return fetch(`http://localhost:3000/products/${id}`, requestOptions);
 }
 
 export { allProducts, getProductById, getProductsByCategory };
