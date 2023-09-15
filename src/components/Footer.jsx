@@ -17,7 +17,6 @@ export default function Footer({ categoryContent }) {
       </p>
     );
   });
-  console.log(categoryContent);
   return (
     <footer>
       <div className="footer--left">

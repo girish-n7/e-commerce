@@ -4,10 +4,10 @@ export default function Header() {
   //create array of navbar content
   let navContent = [
     { name: "HOME", route: "/" },
-    { name: "MEN'S CLOTHING", route: "/products" },
-    { name: "WOMEN'S CLOTHING", route: "/products" },
-    { name: "ELECTRONICS", route: "/products" },
-    { name: "JEWELLERY", route: "/products" },
+    { name: "MEN'S CLOTHING", route: "/products/men" },
+    { name: "WOMEN'S CLOTHING", route: "/products/women" },
+    { name: "ELECTRONICS", route: "/products/electronics" },
+    { name: "JEWELLERY", route: "/products/jewellery" },
   ];
 
   //map the above array into individual routes

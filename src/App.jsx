@@ -6,10 +6,10 @@ export default function App() {
   //create an array containing card contents
 
   let categoryContent = [
-    { name: "MEN'S CLOTHING", img: "", route: "/products" },
-    { name: "WOMEN'S CLOTHING", img: "", route: "/products" },
-    { name: "ELECTRONICS", img: "", route: "/products" },
-    { name: "JEWELLERY", img: "", route: "/products" },
+    { name: "MEN'S CLOTHING", img: "", category: "men" },
+    { name: "WOMEN'S CLOTHING", img: "", category: "women" },
+    { name: "ELECTRONICS", img: "", category: "electronics" },
+    { name: "JEWELLERY", img: "", category: "jewellery" },
   ];
 
   return (

@@ -10,7 +10,7 @@ export default function Home({ categoryContent }) {
         key={data.name}
         name={data.name}
         img={data.img}
-        route={data.route}
+        category={data.category}
       />
     );
   });
