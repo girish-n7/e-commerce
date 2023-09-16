@@ -29,6 +29,10 @@ export default function ProductPage() {
           </div>
           <p className="product--desc">{data.description}</p>
           <p className="product--price">${data.price}</p>
+          <div className="product--buy">
+            <button className="btn buy--btn">BUY NOW</button>
+            <button className="btn wishlist--btn">WISHLIST</button>
+          </div>
         </div>
       </div>
     )
