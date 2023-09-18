@@ -167,20 +167,26 @@ header {
   background-color: rgba(255, 255, 255, 0.8);
   height: fit-content;
   width: fit-content;
+  align-items: center;
   padding: 2px 8px;
   border-radius: 5px;
   transform: translate(5px, 220px);
 }
 
+.product--star__card {
+  height: 0.9rem;
+  margin: 0 5px;
+}
+
 .product--rate,
-.product--rating__count {
-  font-size: 0.9rem;
+.product--ratingCount__card {
+  font-size: 0.8rem;
   font-weight: 550;
 }
 
-.product--rate:after {
+.product--ratingCount__card::before {
   content: "|";
-  margin: 0 7px;
+  margin-right: 5px;
   font-weight: 550;
 }
 
@@ -220,13 +226,24 @@ header {
 .product--rating {
   display: flex;
   width: fit-content;
-  border-radius: 5px;
-  margin: 10px 0;
-  padding: 2px 8px;
-  border: 1px solid var(--accent);
+  align-items: center;
 }
+
 .product--rating > * {
   font-size: 1rem;
+}
+
+.product--rate,
+.product--rating__count {
+  border: 1px solid var(--accent);
+  padding: 2px 8px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.product--star {
+  height: 1.2rem;
+  margin: 0 5px;
 }
 
 .product--desc {
@@ -247,7 +264,7 @@ footer {
   height: fit-content;
   display: flex;
   align-items: center;
-  height: 30vh;
+  height: 25vh;
   background-color: rgb(245, 245, 245);
 }
 
