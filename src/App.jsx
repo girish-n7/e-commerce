@@ -14,8 +14,16 @@ export default function App() {
     setCart((prevState) => [...prevState, item]);
   }
 
+  function clearCart() {
+    setCart([]);
+  }
+
   function updateWishlist(item) {
     setWishlist((prevState) => [...prevState, item]);
+  }
+
+  function clearWishlist() {
+    setWishlist([]);
   }
 
   //create an array containing card contents
@@ -34,7 +42,9 @@ export default function App() {
         cart={cart}
         wishlist={wishlist}
         updateCart={updateCart}
+        clearCart={clearCart}
         updateWishlist={updateWishlist}
+        clearWishlist={clearWishlist}
       />
       <Footer categoryContent={categoryContent} />
     </div>

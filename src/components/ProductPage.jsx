@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
+
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getProduct } from "./CallBackend";
 import starIcon from "../assets/star.svg";
 
-export default function ProductPage() {
+export default function ProductPage({ updateCart, updateWishlist }) {
   let { id } = useParams();
 
   let navigate = useNavigate();
@@ -60,14 +62,20 @@ export default function ProductPage() {
             <button
               className="btn buy--btn"
               title="Add item to cart"
-              onClick={() => navigate("/cart")}
+              onClick={() => {
+                updateCart(data);
+                navigate("/cart");
+              }}
             >
               BUY / ADD
             </button>
             <button
               className="btn wishlist--btn"
               title="Add item to wishlist"
-              onClick={() => navigate("/wishlist")}
+              onClick={() => {
+                updateWishlist(data);
+                navigate("/wishlist");
+              }}
             >
               WISHLIST
             </button>

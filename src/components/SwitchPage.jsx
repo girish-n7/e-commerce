@@ -13,7 +13,9 @@ export default function SwitchPage({
   cart,
   wishlist,
   updateCart,
+  clearCart,
   updateWishlist,
+  clearWishlist,
 }) {
   return (
     <Routes key={location.pathname}>
@@ -37,13 +39,19 @@ export default function SwitchPage({
         exact
         path="/wishlist"
         element={
-          <Wishlist wishlist={wishlist} updateWishlist={updateWishlist} />
+          <Wishlist
+            wishlist={wishlist}
+            updateWishlist={updateWishlist}
+            clearWishlist={clearWishlist}
+          />
         }
       />
       <Route
         exact
         path="/cart"
-        element={<Cart cart={cart} updateCart={updateCart} />}
+        element={
+          <Cart cart={cart} updateCart={updateCart} clearCart={clearCart} />
+        }
       />
       <Route exact path="*" element={<Error />} />
     </Routes>
