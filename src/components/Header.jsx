@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
+  let navigate = useNavigate();
+
   //create array of navbar content
   let navContent = [
     { name: "HOME", route: "/" },
@@ -26,8 +28,20 @@ export default function Header() {
       </div>
       <div className="header--nav">{navMap}</div>
       <div className="header--cart">
-        <img alt="cart" className="cart icon" title="Go to cart"></img>
-        <div className="header--cart_total"></div>
+        <img
+          src=""
+          onClick={() => navigate("/wishlist")}
+          alt="wishlist"
+          className="wishlist icon"
+          title="Go to wishlist"
+        ></img>
+        <img
+          src=""
+          onClick={() => navigate("/cart")}
+          alt="cart"
+          className="cart icon"
+          title="Go to cart"
+        ></img>
       </div>
     </header>
   );

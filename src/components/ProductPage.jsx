@@ -1,19 +1,14 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getProductById } from "./CallBackend";
+import { useParams, useNavigate } from "react-router-dom";
+import { getProduct } from "./CallBackend";
 import starIcon from "../assets/star.svg";
 
 export default function ProductPage() {
   let { id } = useParams();
 
-  let [data, setData] = useState(null);
+  let navigate = useNavigate();
 
-  useEffect(() => {
-    getProductById(id)
-      .then((response) => response.json())
-      .then((result) => setData(result))
-      .catch((err) => console.error(err));
-  }, [id]);
+  let [data, setData] = useState(null);
 
   let colorArr = [
     "invert(62%) sepia(79%) saturate(428%) hue-rotate(60deg) brightness(102%) contrast(98%)",
@@ -23,16 +18,12 @@ export default function ProductPage() {
     "invert(38%) sepia(63%) saturate(1764%) hue-rotate(335deg) brightness(103%) contrast(103%)",
   ];
 
-  let starColor =
-    data.rating.rate < 1
-      ? colorArr[4]
-      : data.rating.rate < 2
-      ? colorArr[3]
-      : data.rating.rate < 3
-      ? colorArr[2]
-      : data.rating.rate < 4
-      ? colorArr[1]
-      : colorArr[0];
+  useEffect(() => {
+    getProduct(id)
+      .then((response) => response.json())
+      .then((result) => setData(result))
+      .catch((err) => console.error(err));
+  }, [id]);
 
   return (
     data && (
@@ -40,7 +31,15 @@ export default function ProductPage() {
         <div
           className="product--img"
           style={{ backgroundImage: `url(${data.image})` }}
-        ></div>
+        >
+          <button
+            onClick={() => navigate(-1)}
+            className="product--back"
+            title="Go to previous page"
+          >
+            Go Back
+          </button>
+        </div>
         <div className="product--body">
           <p className="product--title">{data.title}</p>
           <div className="product--rating">
@@ -49,7 +48,7 @@ export default function ProductPage() {
               src={starIcon}
               className="product--star"
               alt=""
-              style={{ filter: `${starColor}` }}
+              style={{ filter: `${colorArr[Math.floor(data.rating.rate)]}` }}
             />
             <p className="product--rating__count">
               {data.rating.count} ratings
@@ -58,8 +57,20 @@ export default function ProductPage() {
           <p className="product--desc">{data.description}</p>
           <p className="product--price">${data.price}</p>
           <div className="product--buy">
-            <button className="btn buy--btn">BUY NOW</button>
-            <button className="btn wishlist--btn">WISHLIST</button>
+            <button
+              className="btn buy--btn"
+              title="Add item to cart"
+              onClick={() => navigate("/cart")}
+            >
+              BUY / ADD
+            </button>
+            <button
+              className="btn wishlist--btn"
+              title="Add item to wishlist"
+              onClick={() => navigate("/wishlist")}
+            >
+              WISHLIST
+            </button>
           </div>
         </div>
       </div>

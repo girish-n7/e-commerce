@@ -6,7 +6,7 @@
   --accent: #0c2aed; */
 
   --text: #020217;
-  --background: #fafad6;
+  --background: #ffffff;
   --primary: #541098;
   --secondary: #bebef8;
   --accent: #7619d3;
@@ -72,6 +72,8 @@ header {
 .home--container,
 .products--container,
 .product--container,
+.cart--container,
+.wishlist--container,
 .error--container {
   width: 90%;
   margin: 70px auto;
@@ -174,11 +176,12 @@ header {
 }
 
 .product--star__card {
-  height: 0.9rem;
+  height: 1rem;
   margin: 0 5px;
+  vertical-align: text-bottom;
 }
 
-.product--rate,
+.product--rate__card,
 .product--ratingCount__card {
   font-size: 0.8rem;
   font-weight: 550;
@@ -210,6 +213,16 @@ header {
   margin: 20px auto;
 }
 
+.product--back {
+  font-size: 0.8rem;
+  font-weight: 550;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: var(--background);
+  border: 1px solid black;
+  cursor: pointer;
+}
+
 .product--body {
   float: right;
   width: 70%;
@@ -227,18 +240,16 @@ header {
   display: flex;
   width: fit-content;
   align-items: center;
-}
-
-.product--rating > * {
-  font-size: 1rem;
+  margin: 10px 0;
+  padding: 3px 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 0 var(--accent);
 }
 
 .product--rate,
 .product--rating__count {
-  border: 1px solid var(--accent);
-  padding: 2px 8px;
-  border-radius: 5px;
-  margin: 10px 0;
+  font-size: 1rem;
+  font-weight: 550;
 }
 
 .product--star {
@@ -256,6 +267,38 @@ header {
   font-size: 1.6rem;
   margin: 10px 0;
   font-weight: 550;
+}
+
+.product--buy {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 7px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.buy--btn {
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.wishlist--btn {
+  border: 1px solid var(--secondary);
+  background-color: var(--secondary);
+  color: var(--text);
+}
+
+.btn:hover {
+  color: var(--primary);
+  outline: 1px solid var(--primary);
+  border: 1px solid var(--primary);
+  background-color: var(--background);
 }
 
 /* footer */
