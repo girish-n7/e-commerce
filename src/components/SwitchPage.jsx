@@ -14,6 +14,7 @@ export default function SwitchPage({
   wishlist,
   updateCart,
   clearCart,
+  wishlistToCart,
   updateWishlist,
   clearWishlist,
 }) {
@@ -42,6 +43,7 @@ export default function SwitchPage({
           <Wishlist
             wishlist={wishlist}
             updateWishlist={updateWishlist}
+            wishlistToCart={wishlistToCart}
             clearWishlist={clearWishlist}
           />
         }

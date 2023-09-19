@@ -9,9 +9,13 @@ export default function WishlistCard({ data }) {
         <p className="wishlist--price">{data.price}</p>
         <div className="wishlist--body">
           <p className="wishlist--quantity">1</p>
-          <button className="wishlist--remove">Remove from cart</button>
+          <button className="cart--remove">
+            <img src="" alt="remove" className="icon remove"></img>
+          </button>
         </div>
       </div>
     </div>
   );
 }
+
+//reuse styles form cart

@@ -18,6 +18,10 @@ export default function App() {
     setCart([]);
   }
 
+  function wishlistToCart(item) {
+    setCart((prevState) => [...prevState, ...item]);
+  }
+
   function updateWishlist(item) {
     setWishlist((prevState) => [...prevState, item]);
   }
@@ -43,6 +47,7 @@ export default function App() {
         wishlist={wishlist}
         updateCart={updateCart}
         clearCart={clearCart}
+        wishlistToCart={wishlistToCart}
         updateWishlist={updateWishlist}
         clearWishlist={clearWishlist}
       />
