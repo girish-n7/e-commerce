@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import bin from "../assets/bin.svg";
 
 export default function CartCard({ data }) {
   return (
@@ -12,9 +13,7 @@ export default function CartCard({ data }) {
         <div className="cart--body">
           <p className="cart--price">${data.price}</p>
           <p className="cart--quantity">Quantity: 1</p>
-          <button className="cart--remove">
-            <img src="" alt="remove" className="icon remove"></img>
-          </button>
+          <img src={bin} alt="remove" className="icon remove"></img>
         </div>
       </div>
     </div>

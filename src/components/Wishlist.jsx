@@ -2,6 +2,8 @@
 
 import { useNavigate } from "react-router-dom";
 import WishlistCard from "./WishlistCard";
+import checkout from "../assets/checkout.svg";
+import clear from "../assets/clear.svg";
 
 export default function Wishlist({ wishlist, wishlistToCart, clearWishlist }) {
   let navigate = useNavigate();
@@ -10,27 +12,33 @@ export default function Wishlist({ wishlist, wishlistToCart, clearWishlist }) {
   let wishlistMap = wishlist.map((item) => {
     return <WishlistCard key={item.id} data={item} />;
   });
-  return (
-    wishlist && (
-      <div className="cart--container">
-        <div className="cart--buttons">
-          <button
-            className="cart--buy"
-            onClick={() => {
-              wishlistToCart(wishlist);
-              clearWishlist();
-              navigate("/cart");
-            }}
-          >
-            Move all to cart
-          </button>
-          <button className="cart--clear" onClick={() => clearWishlist()}>
-            Clear all
-          </button>
-        </div>
-        <div className="wishlist--card__container">{wishlistMap}</div>
+  return wishlist.length > 0 ? (
+    <div className="cart--container">
+      <div className="cart--buttons">
+        <button
+          className="cart--buy"
+          onClick={() => {
+            wishlistToCart(wishlist);
+            clearWishlist();
+            navigate("/cart");
+          }}
+        >
+          <img src={checkout} alt="" className="checkout--img"></img>Move all to
+          cart
+        </button>
+        <button className="cart--clear" onClick={() => clearWishlist()}>
+          <img src={clear} alt="" className="clear--img"></img>Clear all
+        </button>
       </div>
-    )
+      <div className="wishlist--card__container">{wishlistMap}</div>
+    </div>
+  ) : (
+    <div className="cart--container">
+      <p className="cart--empty">Your wishlist is empty!</p>
+      <p className="cart--shop" onClick={() => navigate("/")}>
+        START SHOPPING
+      </p>
+    </div>
   );
 }
 

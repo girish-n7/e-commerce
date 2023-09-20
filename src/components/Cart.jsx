@@ -1,24 +1,36 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom";
 import CartCard from "./CartCard";
+import checkout from "../assets/checkout.svg";
+import clear from "../assets/clear.svg";
 
 export default function Cart({ cart, clearCart }) {
+  let navigate = useNavigate();
+
   //map the cart array into cards
 
   let cartMap = cart.map((item) => {
     return <CartCard key={item.id} data={item} />;
   });
 
-  return (
-    cart && (
-      <div className="cart--container">
-        <div className="cart--buttons">
-          <button className="cart--buy">Checkout</button>
-          <button className="cart--clear" onClick={() => clearCart()}>
-            Clear Cart
-          </button>
-        </div>
-        <div className="cart--card__container">{cartMap}</div>
+  return cart.length > 0 ? (
+    <div className="cart--container">
+      <div className="cart--buttons">
+        <button className="cart--buy">
+          <img src={checkout} alt="" className="checkout--img"></img>Checkout
+        </button>
+        <button className="cart--clear" onClick={() => clearCart()}>
+          <img src={clear} alt="" className="clear--img"></img>Clear Cart
+        </button>
       </div>
-    )
+      <div className="cart--card__container">{cartMap}</div>
+    </div>
+  ) : (
+    <div className="cart--container">
+      <p className="cart--empty">Your cart is empty!</p>
+      <p className="cart--shop" onClick={() => navigate("/")}>
+        START SHOPPING
+      </p>
+    </div>
   );
 }

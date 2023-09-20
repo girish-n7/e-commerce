@@ -5,11 +5,30 @@
   --secondary: #f5cafc;
   --accent: #0c2aed; */
 
-  --text: #020217;
+  /* default */
+  /* --text: #020217;
   --background: #ffffff;
   --primary: #541098;
   --secondary: #bebef8;
-  --accent: #7619d3;
+  --accent: #7619d3; */
+
+  /* --text: #0a0b09;
+  --background: #fcfdfc;
+  --primary: #475242;
+  --secondary: #e5e8e3;
+  --accent: #7b8e71; */
+
+  /* --text: #1a1d0c;
+  --background: #f6f8ed;
+  --primary: #2f4c1f;
+  --secondary: #cec9e9;
+  --accent: #8143a3; */
+
+  --text: #05080a;
+  --background: #fffafa;
+  --primary: #0071e3;
+  --secondary: #d6e0ea;
+  --accent: #527aa3;
 }
 
 * {
@@ -29,6 +48,17 @@ a {
   text-decoration: none;
 }
 
+.icon {
+  height: 1.8rem;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
 /* header */
 
 header {
@@ -39,9 +69,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5%;
+  padding: 18px 5%;
   background-color: var(--secondary);
   z-index: 2;
+}
+
+.header--logo {
+  height: 2rem;
 }
 
 .header--head {
@@ -51,7 +85,7 @@ header {
 }
 
 .header--title {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 .header--nav {
@@ -63,8 +97,10 @@ header {
   align-items: center;
 }
 
-.cart {
-  cursor: pointer;
+.header--cart {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* home */
@@ -216,7 +252,7 @@ header {
 .product--back {
   font-size: 0.8rem;
   font-weight: 550;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 5px 10px;
   background-color: var(--background);
   border: 1px solid black;
@@ -278,7 +314,7 @@ header {
 .btn {
   font-size: 1rem;
   padding: 7px 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -389,11 +425,30 @@ header {
   font-weight: 550;
 }
 
-.cart--remove {
+.remove {
+  border: none;
+}
+
+.checkout--img,
+.clear--img {
+  filter: invert(1);
+  vertical-align: text-top;
+  height: 1.6rem;
+  margin-right: 5px;
+}
+
+.cart--empty {
+  font-size: 1.6rem;
+  margin: 50px 0 20px 0;
+}
+
+.cart--shop {
   font-size: 1rem;
-  padding: 5px 10px;
-  border-radius: 10px;
-  background-color: var(--background);
+  padding: 7px 15px;
+  background-color: var(--primary);
+  color: var(--background);
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
