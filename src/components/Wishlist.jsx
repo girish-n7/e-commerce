@@ -43,7 +43,7 @@ export default function Wishlist({
           <img src={clear} alt="" className="clear--img"></img>Clear all
         </button>
       </div>
-      <div className="wishlist--card__container">{wishlistMap}</div>
+      <div className="cart--card__container">{wishlistMap}</div>
     </div>
   ) : (
     <div className="cart--container">

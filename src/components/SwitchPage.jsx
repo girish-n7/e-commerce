@@ -6,6 +6,7 @@ import Products from "./Products";
 import ProductPage from "./ProductPage";
 import Wishlist from "./Wishlist";
 import Cart from "./Cart";
+import Checkout from "./Checkout";
 import Error from "./Error";
 
 export default function SwitchPage({
@@ -62,6 +63,8 @@ export default function SwitchPage({
           />
         }
       />
+      <Route exact path="/checkout" element={<Checkout cart={cart} />} />
+
       <Route exact path="*" element={<Error />} />
     </Routes>
   );

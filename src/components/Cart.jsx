@@ -18,8 +18,9 @@ export default function Cart({ cart, clearCart, deleteFromCart }) {
   return cart.length > 0 ? (
     <div className="cart--container">
       <div className="cart--buttons">
-        <button className="cart--buy">
-          <img src={checkout} alt="" className="checkout--img"></img>Checkout
+        <button className="cart--buy" onClick={() => navigate("/checkout")}>
+          <img src={checkout} alt="" className="checkout--img"></img>
+          Checkout
         </button>
         <button className="cart--clear" onClick={() => clearCart()}>
           <img src={clear} alt="" className="clear--img"></img>Clear Cart

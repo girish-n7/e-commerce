@@ -98,7 +98,7 @@ header {
 }
 
 .header--cart {
-  width: 70px;
+  width: 80px;
   display: flex;
   justify-content: space-between;
 }
@@ -110,6 +110,7 @@ header {
 .product--container,
 .cart--container,
 .wishlist--container,
+.checkout--container,
 .error--container {
   width: 90%;
   margin: 70px auto;
@@ -365,7 +366,7 @@ header {
 .cart--clear {
   font-size: 1rem;
   padding: 7px 15px;
-  background-color: red;
+  background-color: #f24237;
   color: var(--background);
   border: none;
   border-radius: 5px;
@@ -452,6 +453,20 @@ header {
   cursor: pointer;
 }
 
+/* error */
+
+.error--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error--container > * {
+  font-size: 2.4rem;
+  color: #f24237;
+}
+
 /* footer */
 
 footer {
@@ -459,6 +474,7 @@ footer {
   display: flex;
   align-items: center;
   height: 25vh;
+  min-height: 180px;
   background-color: rgb(245, 245, 245);
 }
 
