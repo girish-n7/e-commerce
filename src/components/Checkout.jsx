@@ -18,7 +18,7 @@ export default function Checkout({ cart }) {
     return (
       <div className="checkout--card" key={item.id}>
         <p className="checkout--item__title">{item.title}</p>
-        <p className="checkout--item__price">{item.price}</p>
+        <p className="checkout--item__price">${item.price}</p>
         <p className="checkout--item__quantity">Quantity: 1</p>
       </div>
     );
@@ -30,16 +30,18 @@ export default function Checkout({ cart }) {
         <p className="checkout--total">Total items: {cart.length}</p>
         <p className="checkout--amount">Total amount: ${totalAmount}</p>
       </div>
-      <div className="checkout--body">
-        {productMap}
-        <button
-          className="checkout--buy"
-          onClick={() => setCheckout((prevState) => !prevState)}
-        >
-          <img src={checkout} alt="" className="checkout--img"></img>
-          Place order
-        </button>
-      </div>
+      {cart.length > 0 && (
+        <div className="checkout--body">
+          {productMap}
+          <button
+            className="checkout--buy"
+            onClick={() => setCheckout((prevState) => !prevState)}
+          >
+            <img src={checkout} alt="" className="checkout--img"></img>
+            Place order
+          </button>
+        </div>
+      )}
     </div>
   ) : (
     <div className="checkout--container">
