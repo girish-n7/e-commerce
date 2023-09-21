@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import bin from "../assets/bin.svg";
 
-export default function WishlistCard({ data }) {
+export default function WishlistCard({ data, updateCart, deleteFromWishlist }) {
   return (
     <div className="wishlist--card">
       <div className="wishlist--img">{data.image}</div>
@@ -11,7 +11,23 @@ export default function WishlistCard({ data }) {
         <div className="wishlist--body">
           <p className="wishlist--quantity">1</p>
           <button className="cart--remove">
-            <img src={bin} alt="remove" className="icon remove"></img>
+            <img
+              src={bin}
+              alt="remove"
+              className="icon remove"
+              onClick={() => deleteFromWishlist(data.id)}
+            ></img>
+          </button>
+          <button className="cart--remove">
+            <img
+              src={bin}
+              alt="move to cart"
+              className="icon move"
+              onClick={() => {
+                updateCart(data);
+                deleteFromWishlist(data.id);
+              }}
+            ></img>
           </button>
         </div>
       </div>

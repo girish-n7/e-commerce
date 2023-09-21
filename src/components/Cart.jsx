@@ -4,13 +4,15 @@ import CartCard from "./CartCard";
 import checkout from "../assets/checkout.svg";
 import clear from "../assets/clear.svg";
 
-export default function Cart({ cart, clearCart }) {
+export default function Cart({ cart, clearCart, deleteFromCart }) {
   let navigate = useNavigate();
 
   //map the cart array into cards
 
   let cartMap = cart.map((item) => {
-    return <CartCard key={item.id} data={item} />;
+    return (
+      <CartCard key={item.id} data={item} deleteFromCart={deleteFromCart} />
+    );
   });
 
   return cart.length > 0 ? (

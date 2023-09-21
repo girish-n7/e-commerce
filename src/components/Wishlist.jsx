@@ -5,12 +5,25 @@ import WishlistCard from "./WishlistCard";
 import checkout from "../assets/checkout.svg";
 import clear from "../assets/clear.svg";
 
-export default function Wishlist({ wishlist, wishlistToCart, clearWishlist }) {
+export default function Wishlist({
+  wishlist,
+  moveAll,
+  updateCart,
+  clearWishlist,
+  deleteFromWishlist,
+}) {
   let navigate = useNavigate();
 
   //map the cart array into cards
   let wishlistMap = wishlist.map((item) => {
-    return <WishlistCard key={item.id} data={item} />;
+    return (
+      <WishlistCard
+        key={item.id}
+        data={item}
+        updateCart={updateCart}
+        deleteFromWishlist={deleteFromWishlist}
+      />
+    );
   });
   return wishlist.length > 0 ? (
     <div className="cart--container">
@@ -18,7 +31,7 @@ export default function Wishlist({ wishlist, wishlistToCart, clearWishlist }) {
         <button
           className="cart--buy"
           onClick={() => {
-            wishlistToCart(wishlist);
+            moveAll(wishlist);
             clearWishlist();
             navigate("/cart");
           }}

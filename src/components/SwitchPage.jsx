@@ -14,9 +14,11 @@ export default function SwitchPage({
   wishlist,
   updateCart,
   clearCart,
-  wishlistToCart,
+  moveAll,
   updateWishlist,
   clearWishlist,
+  deleteFromCart,
+  deleteFromWishlist,
 }) {
   return (
     <Routes key={location.pathname}>
@@ -42,9 +44,10 @@ export default function SwitchPage({
         element={
           <Wishlist
             wishlist={wishlist}
-            updateWishlist={updateWishlist}
-            wishlistToCart={wishlistToCart}
+            updateCart={updateCart}
+            moveAll={moveAll}
             clearWishlist={clearWishlist}
+            deleteFromWishlist={deleteFromWishlist}
           />
         }
       />
@@ -52,7 +55,11 @@ export default function SwitchPage({
         exact
         path="/cart"
         element={
-          <Cart cart={cart} updateCart={updateCart} clearCart={clearCart} />
+          <Cart
+            cart={cart}
+            clearCart={clearCart}
+            deleteFromCart={deleteFromCart}
+          />
         }
       />
       <Route exact path="*" element={<Error />} />

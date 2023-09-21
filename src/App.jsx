@@ -14,20 +14,30 @@ export default function App() {
     setCart((prevState) => [...prevState, item]);
   }
 
-  function clearCart() {
-    setCart([]);
+  function deleteFromCart(deleteId) {
+    let newCart = cart.filter((obj) => obj.id !== deleteId); //to delete obj in arr based on object id
+    setCart(newCart);
   }
 
-  function wishlistToCart(item) {
-    setCart((prevState) => [...prevState, ...item]);
+  function clearCart() {
+    setCart([]); //empty cart
+  }
+
+  function moveAll(item) {
+    setCart((prevState) => [...prevState, ...item]); //move all from wishlist to cart
   }
 
   function updateWishlist(item) {
-    setWishlist((prevState) => [...prevState, item]);
+    setWishlist((prevState) => [...prevState, item]); //add item to wishlist
+  }
+
+  function deleteFromWishlist(deleteId) {
+    let newWishlist = wishlist.filter((obj) => obj.id !== deleteId); //to delete obj in arr based on object id
+    setWishlist(newWishlist);
   }
 
   function clearWishlist() {
-    setWishlist([]);
+    setWishlist([]); //empty wishlist
   }
 
   //create an array containing card contents
@@ -47,9 +57,11 @@ export default function App() {
         wishlist={wishlist}
         updateCart={updateCart}
         clearCart={clearCart}
-        wishlistToCart={wishlistToCart}
+        moveAll={moveAll}
         updateWishlist={updateWishlist}
         clearWishlist={clearWishlist}
+        deleteFromCart={deleteFromCart}
+        deleteFromWishlist={deleteFromWishlist}
       />
       <Footer categoryContent={categoryContent} />
     </div>
