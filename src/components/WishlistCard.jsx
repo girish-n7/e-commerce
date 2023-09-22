@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import bin from "../assets/bin.svg";
-import move from "../assets/move.svg";
+import arrowRight from "../assets/arrowRight.svg";
 
 export default function WishlistCard({ data, updateCart, deleteFromWishlist }) {
   return (
@@ -15,7 +15,7 @@ export default function WishlistCard({ data, updateCart, deleteFromWishlist }) {
           <p className="cart--price">${data.price}</p>
           <p className="cart--quantity">Quantity: 1</p>
           <img
-            src={move}
+            src={arrowRight}
             alt="move"
             title="move to cart"
             className="icon move"

@@ -11,7 +11,6 @@ import Error from "./Error";
 
 export default function SwitchPage({
   categoryContent,
-  defaultContent,
   cart,
   wishlist,
   updateCart,
@@ -24,16 +23,17 @@ export default function SwitchPage({
 }) {
   return (
     <Routes key={location.pathname}>
+      {/* Home */}
       <Route
         exact
         path="/"
         element={<Home categoryContent={categoryContent} />}
       />
-      <Route
-        exact
-        path="/products/:category"
-        element={<Products defaultContent={defaultContent} />}
-      />
+
+      {/* Products list */}
+      <Route exact path="/products/:category" element={<Products />} />
+
+      {/* Product page */}
       <Route
         exact
         path="/productPage/:id"
@@ -44,6 +44,8 @@ export default function SwitchPage({
           />
         }
       />
+
+      {/* Wishlist */}
       <Route
         exact
         path="/wishlist"
@@ -57,6 +59,8 @@ export default function SwitchPage({
           />
         }
       />
+
+      {/* Cart */}
       <Route
         exact
         path="/cart"
@@ -65,9 +69,12 @@ export default function SwitchPage({
             cart={cart}
             clearCart={clearCart}
             deleteFromCart={deleteFromCart}
+            updateWishlist={updateWishlist}
           />
         }
       />
+
+      {/* Checkout */}
       <Route
         exact
         path="/checkout"

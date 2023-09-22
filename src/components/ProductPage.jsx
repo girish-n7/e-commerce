@@ -72,7 +72,6 @@ export default function ProductPage({ updateCart, updateWishlist }) {
             title="Add item to wishlist"
             onClick={() => {
               updateWishlist(data);
-              navigate("/wishlist");
             }}
           >
             WISHLIST
