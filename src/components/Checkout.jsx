@@ -3,7 +3,7 @@
 import { useState } from "react";
 import checkout from "../assets/checkout.svg";
 
-export default function Checkout({ cart }) {
+export default function Checkout({ cart, clearCart }) {
   let [showCheckout, setCheckout] = useState(true);
 
   //total amount
@@ -35,7 +35,10 @@ export default function Checkout({ cart }) {
           {productMap}
           <button
             className="checkout--buy"
-            onClick={() => setCheckout((prevState) => !prevState)}
+            onClick={() => {
+              clearCart();
+              setCheckout((prevState) => !prevState);
+            }}
           >
             <img src={checkout} alt="" className="checkout--img"></img>
             Place order
@@ -46,8 +49,8 @@ export default function Checkout({ cart }) {
   ) : (
     <div className="checkout--container">
       <img src={checkout} alt="" className="confirm--img"></img>
-      <p className="checkout--confirm">Your order has been placed </p>
-      <p className="checkout--thanks">Thank you for shopping</p>
+      <p className="checkout--confirm">Your order has been placed!</p>
+      <p className="checkout--thanks">Thank you for shopping with us</p>
     </div>
   );
 }

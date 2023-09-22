@@ -119,19 +119,25 @@ header {
 }
 
 .home--category {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  margin-top: 20px;
 }
 
 .category--card__container {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  padding: 20px 0px;
+  padding: 20px 90px;
 }
 
 .category--card {
-  width: 22%;
-  aspect-ratio: 3/2;
+  width: 250px;
+  aspect-ratio: 3/4;
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 10px 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px grey;
   position: relative;
@@ -140,18 +146,22 @@ header {
 }
 
 .category--card:hover {
-  box-shadow: 0px 0px 4px 1px var(--accent);
-  transform: scale(1.05);
+  box-shadow: 0px 0px 4px 0px var(--accent);
+  outline: 1px solid var(--accent);
+  transform: scale(1.02);
   transition: 0.2s;
 }
 
 .category--card__content {
+  width: 210px;
   position: absolute;
-  bottom: 10px;
-  font-size: 1.2rem;
+  bottom: 30px;
+  font-size: 0.9rem;
+  font-weight: 550;
   text-align: center;
-  padding: 10px;
-  width: 100%;
+  padding: 5px 0;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* products */
@@ -516,7 +526,7 @@ header {
 }
 
 .checkout--confirm {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin: 10px 0;
 }
 
