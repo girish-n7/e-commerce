@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getProduct } from "./CallBackend";
+import { getProduct } from "./FetchFromBackend";
 import starIcon from "../assets/star.svg";
 
 export default function ProductPage({ updateCart, updateWishlist }) {

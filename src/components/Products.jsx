@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "./ProductCard";
-import { getProductsByCategory } from "./CallBackend";
+import { getProductsByCategory } from "./FetchFromBackend";
 
 export default function Products({ defaultContent }) {
   let { category } = useParams();
