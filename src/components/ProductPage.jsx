@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getProduct } from "./FetchFromBackend";
+import { ProductPlaceholder } from "./Placeholder";
 import starIcon from "../assets/star.svg";
 
 export default function ProductPage({ updateCart, updateWishlist }) {
@@ -27,61 +28,59 @@ export default function ProductPage({ updateCart, updateWishlist }) {
       .catch((err) => console.error(err));
   }, [id]);
 
-  return (
-    data && (
-      <div className="product--container">
-        <div
-          className="product--img"
-          style={{ backgroundImage: `url(${data.image})` }}
+  return data ? (
+    <div className="product--container">
+      <div
+        className="product--img"
+        style={{ backgroundImage: `url(${data.image})` }}
+      >
+        <button
+          onClick={() => navigate(-1)}
+          className="product--back"
+          title="Go to previous page"
         >
+          Back
+        </button>
+      </div>
+      <div className="product--body">
+        <p className="product--title">{data.title}</p>
+        <div className="product--rating">
+          <p className="product--rate">{data.rating.rate}</p>
+          <img
+            src={starIcon}
+            className="product--star"
+            alt=""
+            style={{ filter: `${colorArr[Math.floor(data.rating.rate)]}` }}
+          />
+          <p className="product--rating__count">{data.rating.count} ratings</p>
+        </div>
+        <p className="product--desc">{data.description}</p>
+        <p className="product--price">${data.price}</p>
+        <div className="product--buy">
           <button
-            onClick={() => navigate(-1)}
-            className="product--back"
-            title="Go to previous page"
+            className="btn buy--btn"
+            title="Add item to cart"
+            onClick={() => {
+              updateCart(data);
+              navigate("/cart");
+            }}
           >
-            Back
+            BUY / ADD
+          </button>
+          <button
+            className="btn wishlist--btn"
+            title="Add item to wishlist"
+            onClick={() => {
+              updateWishlist(data);
+              navigate("/wishlist");
+            }}
+          >
+            WISHLIST
           </button>
         </div>
-        <div className="product--body">
-          <p className="product--title">{data.title}</p>
-          <div className="product--rating">
-            <p className="product--rate">{data.rating.rate}</p>
-            <img
-              src={starIcon}
-              className="product--star"
-              alt=""
-              style={{ filter: `${colorArr[Math.floor(data.rating.rate)]}` }}
-            />
-            <p className="product--rating__count">
-              {data.rating.count} ratings
-            </p>
-          </div>
-          <p className="product--desc">{data.description}</p>
-          <p className="product--price">${data.price}</p>
-          <div className="product--buy">
-            <button
-              className="btn buy--btn"
-              title="Add item to cart"
-              onClick={() => {
-                updateCart(data);
-                navigate("/cart");
-              }}
-            >
-              BUY / ADD
-            </button>
-            <button
-              className="btn wishlist--btn"
-              title="Add item to wishlist"
-              onClick={() => {
-                updateWishlist(data);
-                navigate("/wishlist");
-              }}
-            >
-              WISHLIST
-            </button>
-          </div>
-        </div>
       </div>
-    )
+    </div>
+  ) : (
+    <ProductPlaceholder />
   );
 }
