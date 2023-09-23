@@ -6,13 +6,21 @@ import { getProduct } from "./FetchFromBackend";
 import { ProductPlaceholder } from "./Placeholder";
 import starIcon from "../assets/star.svg";
 
-export default function ProductPage({ updateCart, updateWishlist }) {
-  let { id } = useParams();
+export default function ProductPage({
+  updateCart,
+  updateWishlist,
+  deleteFromWishlist,
+  wishlist,
+}) {
+  let { id } = useParams(); //get user selected id from params
 
   let navigate = useNavigate();
 
   let [data, setData] = useState(null);
 
+  let inWish = wishlist.some((wish) => wish.id === data.id);
+
+  //create array to set the rating star according to rating
   let colorArr = [
     "invert(38%) sepia(63%) saturate(1764%) hue-rotate(335deg) brightness(103%) contrast(103%)",
     "invert(75%) sepia(93%) saturate(1448%) hue-rotate(330deg) brightness(102%) contrast(101%)",
@@ -27,6 +35,8 @@ export default function ProductPage({ updateCart, updateWishlist }) {
       .then((result) => setData(result))
       .catch((err) => console.error(err));
   }, [id]);
+
+  //check if selected item is in wishlist
 
   return data ? (
     <div className="product--container">
@@ -71,10 +81,10 @@ export default function ProductPage({ updateCart, updateWishlist }) {
             className="btn wishlist--btn"
             title="Add item to wishlist"
             onClick={() => {
-              updateWishlist(data);
+              inWish ? deleteFromWishlist(data.id) : updateWishlist(data);
             }}
           >
-            WISHLIST
+            {inWish ? "REMOVE FROM WISHLIST" : "ADD TO WISHLIST"}
           </button>
         </div>
       </div>

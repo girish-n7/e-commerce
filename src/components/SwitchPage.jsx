@@ -51,6 +51,8 @@ export default function SwitchPage({
           <ProductPage
             updateCart={updateCart}
             updateWishlist={updateWishlist}
+            deleteFromWishlist={deleteFromWishlist}
+            wishlist={wishlist}
           />
         }
       />
