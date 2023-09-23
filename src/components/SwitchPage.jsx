@@ -35,7 +35,11 @@ export default function SwitchPage({
         exact
         path="/products/:category"
         element={
-          <Products updateWishlist={updateWishlist} wishlist={wishlist} />
+          <Products
+            updateWishlist={updateWishlist}
+            wishlist={wishlist}
+            deleteFromWishlist={deleteFromWishlist}
+          />
         }
       />
 

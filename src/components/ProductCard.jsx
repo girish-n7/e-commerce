@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import starIcon from "../assets/star.svg";
 import heart from "../assets/heart.svg";
 import heartRed from "../assets/heartRed.svg";
 
-export default function ProductCard({ data, updateWishlist, inWishlist }) {
-  let [wishlistItem, setWishlistItem] = useState(false);
-
+export default function ProductCard({
+  data,
+  updateWishlist,
+  deleteFromWishlist,
+  inWishlist,
+}) {
   let navigate = useNavigate();
+
   let colorArr = [
     "invert(62%) sepia(79%) saturate(428%) hue-rotate(60deg) brightness(102%) contrast(98%)",
     "invert(84%) sepia(44%) saturate(701%) hue-rotate(17deg) brightness(93%) contrast(95%)",
@@ -38,13 +41,12 @@ export default function ProductCard({ data, updateWishlist, inWishlist }) {
         style={{ backgroundImage: `url(${data.image})` }}
       >
         <img
-          src={wishlistItem || inWishlist ? heartRed : heart}
+          src={inWishlist ? heartRed : heart}
           className="icon heart"
           alt=""
           onClick={(e) => {
             e.stopPropagation(); // to stop the click triggering background img click
-            updateWishlist(data);
-            setWishlistItem((prevState) => !prevState);
+            inWishlist ? deleteFromWishlist(data.id) : updateWishlist(data); //if item in wishlist, then delete and vice versa
           }}
         ></img>
         <div className="product--rating__card">

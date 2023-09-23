@@ -6,7 +6,11 @@ import ProductCard from "./ProductCard";
 import { getProductsByCategory } from "./FetchFromBackend";
 import { ProductCardPlaceholder } from "./Placeholder";
 
-export default function Products({ updateWishlist, wishlist }) {
+export default function Products({
+  updateWishlist,
+  wishlist,
+  deleteFromWishlist,
+}) {
   let { category } = useParams(); //get category from params
 
   let [data, setData] = useState(null);
@@ -35,6 +39,7 @@ export default function Products({ updateWishlist, wishlist }) {
             key={item.id}
             data={item}
             updateWishlist={updateWishlist}
+            deleteFromWishlist={deleteFromWishlist}
             inWishlist={inWishlist}
           />
         );
