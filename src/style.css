@@ -71,7 +71,7 @@ header {
   align-items: center;
   padding: 18px 5%;
   background-color: var(--secondary);
-  z-index: 2;
+  z-index: 3;
 }
 
 .header--logo {
@@ -196,6 +196,7 @@ header {
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 5px;
+  position: relative;
 }
 
 .product--head {
@@ -221,6 +222,13 @@ header {
   padding: 2px 8px;
   border-radius: 5px;
   transform: translate(5px, 220px);
+}
+
+.heart {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  z-index: 2;
 }
 
 .product--star__card {

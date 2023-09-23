@@ -31,7 +31,13 @@ export default function SwitchPage({
       />
 
       {/* Products list */}
-      <Route exact path="/products/:category" element={<Products />} />
+      <Route
+        exact
+        path="/products/:category"
+        element={
+          <Products updateWishlist={updateWishlist} wishlist={wishlist} />
+        }
+      />
 
       {/* Product page */}
       <Route

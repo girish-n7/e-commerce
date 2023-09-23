@@ -1,8 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import starIcon from "../assets/star.svg";
+import heart from "../assets/heart.svg";
+import heartRed from "../assets/heartRed.svg";
 
-export default function ProductCard({ id, title, img, price, rating }) {
+export default function ProductCard({ data, updateWishlist, inWishlist }) {
+  let [wishlistItem, setWishlistItem] = useState(false);
+
   let navigate = useNavigate();
   let colorArr = [
     "invert(62%) sepia(79%) saturate(428%) hue-rotate(60deg) brightness(102%) contrast(98%)",
@@ -13,28 +18,38 @@ export default function ProductCard({ id, title, img, price, rating }) {
   ];
 
   let starColor =
-    rating.rate < 1
+    data.rating.rate < 1
       ? colorArr[4]
-      : rating.rate < 2
+      : data.rating.rate < 2
       ? colorArr[3]
-      : rating.rate < 3
+      : data.rating.rate < 3
       ? colorArr[2]
-      : rating.rate < 4
+      : data.rating.rate < 4
       ? colorArr[1]
       : colorArr[0];
 
   return (
     <div
       className="product--card"
-      onClick={() => navigate(`/productPage/${id}`)}
+      onClick={() => navigate(`/productPage/${data.id}`)}
     >
       <div
         className="product--img__card"
-        style={{ backgroundImage: `url(${img})` }}
+        style={{ backgroundImage: `url(${data.image})` }}
       >
+        <img
+          src={wishlistItem || inWishlist ? heartRed : heart}
+          className="icon heart"
+          alt=""
+          onClick={(e) => {
+            e.stopPropagation(); // to stop the click triggering background img click
+            updateWishlist(data);
+            setWishlistItem((prevState) => !prevState);
+          }}
+        ></img>
         <div className="product--rating__card">
           <p className="product--rate__card">
-            {rating.rate}
+            {data.rating.rate}
             <img
               src={starIcon}
               className="product--star__card"
@@ -43,12 +58,12 @@ export default function ProductCard({ id, title, img, price, rating }) {
             />
           </p>
 
-          <p className="product--ratingCount__card">{rating.count}</p>
+          <p className="product--ratingCount__card">{data.rating.count}</p>
         </div>
       </div>
       <div className="product--head">
-        <p className="product--title__card">{title}</p>
-        <p className="product--price__card">${price}</p>
+        <p className="product--title__card">{data.title}</p>
+        <p className="product--price__card">${data.price}</p>
       </div>
     </div>
   );
