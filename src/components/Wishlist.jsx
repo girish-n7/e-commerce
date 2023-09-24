@@ -12,7 +12,7 @@ export default function Wishlist({
   clearWishlist,
   deleteFromWishlist,
 }) {
-  let navigate = useNavigate();
+  let navigate = useNavigate(); //to switch to respective page on click
 
   //map the cart array into cards
   let wishlistMap = wishlist.map((item) => {

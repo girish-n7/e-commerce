@@ -10,10 +10,9 @@ export default function Cart({
   deleteFromCart,
   updateWishlist,
 }) {
-  let navigate = useNavigate();
+  let navigate = useNavigate(); //to switch to respective page on click
 
   //map the cart array into cards
-
   let cartMap = cart.map((item) => {
     return (
       <CartCard

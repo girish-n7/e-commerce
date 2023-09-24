@@ -5,9 +5,9 @@ import Footer from "./components/Footer";
 
 export default function App() {
   //cart and wishlist states
-  let [cart, setCart] = useState([]);
+  let [cart, setCart] = useState([]); //initial cart
 
-  let [wishlist, setWishlist] = useState([]);
+  let [wishlist, setWishlist] = useState([]); //initial wishlist
 
   //create an array containing card contents
   let categoryContent = [
@@ -39,7 +39,10 @@ export default function App() {
   }
 
   function deleteFromCart(deleteId) {
-    let newCart = cart.filter((obj) => obj.id !== deleteId); //to delete obj in arr based on object id
+    //to delete obj in arr based on object id (creates a new arr where the id is !== (not equal) to deleteId)
+    //arr.filter method returns arr items, here obj,
+    //  whose property (here: id) satisfies the given condition (condition here is id not equal to user selected id)
+    let newCart = cart.filter((obj) => obj.id !== deleteId);
     setCart(newCart);
   }
 
@@ -56,7 +59,10 @@ export default function App() {
   }
 
   function deleteFromWishlist(deleteId) {
-    let newWishlist = wishlist.filter((obj) => obj.id !== deleteId); //to delete obj in arr based on object id
+    //to delete obj in arr based on object id (creates a new arr where the id is !== (not equal) to deleteId)
+    //arr.filter method returns arr items, here obj,
+    //  whose property (here: id) satisfies the given condition (condition here is id not equal to user selected id)
+    let newWishlist = wishlist.filter((obj) => obj.id !== deleteId);
     setWishlist(newWishlist);
   }
 

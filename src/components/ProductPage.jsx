@@ -14,11 +14,9 @@ export default function ProductPage({
 }) {
   let { id } = useParams(); //get user selected id from params
 
-  let navigate = useNavigate();
+  let navigate = useNavigate(); //to switch to respective page on click
 
   let [data, setData] = useState(null);
-
-  let inWish = wishlist.some((wish) => wish.id === data.id);
 
   //create array to set the rating star according to rating
   let colorArr = [
@@ -81,10 +79,14 @@ export default function ProductPage({
             className="btn wishlist--btn"
             title="Add item to wishlist"
             onClick={() => {
-              inWish ? deleteFromWishlist(data.id) : updateWishlist(data);
+              wishlist.some((wish) => wish.id === data.id)
+                ? deleteFromWishlist(data.id)
+                : updateWishlist(data);
             }}
           >
-            {inWish ? "REMOVE FROM WISHLIST" : "ADD TO WISHLIST"}
+            {wishlist.some((wish) => wish.id === data.id)
+              ? "REMOVE FROM WISHLIST"
+              : "ADD TO WISHLIST"}
           </button>
         </div>
       </div>

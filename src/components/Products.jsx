@@ -32,7 +32,7 @@ export default function Products({
   let productMap = data
     ? data.map((item) => {
         //check if item is in wishlist
-        let inWishlist = wishlist.some((wish) => wish.id === item.id);
+        let inWishlist = wishlist.some((wish) => wish.id === item.id); //returns true if found
 
         return (
           <ProductCard
@@ -40,7 +40,7 @@ export default function Products({
             data={item}
             updateWishlist={updateWishlist}
             deleteFromWishlist={deleteFromWishlist}
-            inWishlist={inWishlist}
+            inWishlist={inWishlist} // boolean
           />
         );
       })

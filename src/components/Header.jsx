@@ -4,7 +4,7 @@ import heart from "../assets/heart.svg";
 import cart from "../assets/cart.svg";
 
 export default function Header() {
-  let navigate = useNavigate();
+  let navigate = useNavigate(); //to switch to respective page on click
 
   //create array of navbar content
   let navContent = [
