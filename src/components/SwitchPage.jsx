@@ -49,10 +49,12 @@ export default function SwitchPage({
         path="/productPage/:id"
         element={
           <ProductPage
+            wishlist={wishlist}
+            cart={cart}
             updateCart={updateCart}
             updateWishlist={updateWishlist}
             deleteFromWishlist={deleteFromWishlist}
-            wishlist={wishlist}
+            deleteFromCart={deleteFromCart}
           />
         }
       />

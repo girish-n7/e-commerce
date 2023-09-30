@@ -7,10 +7,12 @@ import { ProductPlaceholder } from "./Placeholder";
 import starIcon from "../assets/star.svg";
 
 export default function ProductPage({
+  wishlist,
+  cart,
   updateCart,
   updateWishlist,
   deleteFromWishlist,
-  wishlist,
+  deleteFromCart,
 }) {
   let { id } = useParams(); //get user selected id from params
 
@@ -27,14 +29,13 @@ export default function ProductPage({
     "invert(62%) sepia(79%) saturate(428%) hue-rotate(60deg) brightness(102%) contrast(98%)",
   ];
 
+  //fetch data from backend
   useEffect(() => {
     getProduct(id)
       .then((response) => response.json())
       .then((result) => setData(result))
       .catch((err) => console.error(err));
   }, [id]);
-
-  //check if selected item is in wishlist
 
   return data ? (
     <div className="product--container">
@@ -69,16 +70,23 @@ export default function ProductPage({
             className="btn buy--btn"
             title="Add item to cart"
             onClick={() => {
-              updateCart(data);
-              navigate("/cart");
+              //check if selected item is in cart
+
+              cart.some((item) => item.id === data.id)
+                ? deleteFromCart(data.id)
+                : updateCart(data);
             }}
           >
-            BUY / ADD
+            {cart.some((item) => item.id === data.id)
+              ? "REMOVE FROM CART"
+              : "BUY/ADD"}
           </button>
           <button
             className="btn wishlist--btn"
             title="Add item to wishlist"
             onClick={() => {
+              //check if selected item is in wishlist
+
               wishlist.some((wish) => wish.id === data.id)
                 ? deleteFromWishlist(data.id)
                 : updateWishlist(data);
