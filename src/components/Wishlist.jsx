@@ -49,7 +49,7 @@ export default function Wishlist({
     <div className="cart--container">
       <p className="cart--empty">Your wishlist is empty!</p>
       <p className="cart--shop" onClick={() => navigate("/")}>
-        START SHOPPING
+        Start shopping
       </p>
     </div>
   );

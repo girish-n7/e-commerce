@@ -1,29 +1,4 @@
 :root {
-  /* --text: #060a01;
-  --background: #ffffff;
-  --primary: #510bcb;
-  --secondary: #f5cafc;
-  --accent: #0c2aed; */
-
-  /* default */
-  /* --text: #020217;
-  --background: #ffffff;
-  --primary: #541098;
-  --secondary: #bebef8;
-  --accent: #7619d3; */
-
-  /* --text: #0a0b09;
-  --background: #fcfdfc;
-  --primary: #475242;
-  --secondary: #e5e8e3;
-  --accent: #7b8e71; */
-
-  /* --text: #1a1d0c;
-  --background: #f6f8ed;
-  --primary: #2f4c1f;
-  --secondary: #cec9e9;
-  --accent: #8143a3; */
-
   --text: #05080a;
   --background: #fffafa;
   --primary: #0071e3;
@@ -85,14 +60,14 @@ header {
 }
 
 .header--title {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .header--nav {
   display: flex;
   justify-content: space-between;
   gap: 45px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   align-items: center;
 }
@@ -112,14 +87,14 @@ header {
 .wishlist--container,
 .checkout--container,
 .error--container {
-  width: 90%;
-  margin: 70px auto;
+  width: 70%;
+  margin: 85px auto;
   padding: 5px 0;
   min-height: 70vh;
 }
 
 .home--category {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-top: 20px;
 }
 
@@ -131,7 +106,7 @@ header {
 }
 
 .category--card {
-  width: 250px;
+  width: 200px;
   aspect-ratio: 3/4;
   background-origin: content-box;
   background-position: center;
@@ -153,10 +128,10 @@ header {
 }
 
 .category--card__content {
-  width: 210px;
+  width: 160px;
   position: absolute;
   bottom: 30px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 550;
   text-align: center;
   padding: 5px 0;
@@ -174,8 +149,8 @@ header {
 
 .product--card,
 .placeholder--card {
-  width: 250px;
-  height: 350px;
+  width: 200px;
+  height: 300px;
   margin: 20px 5px;
   padding: 15px;
   border-radius: 10px;
@@ -262,11 +237,12 @@ header {
 
 .product--img {
   float: left;
-  width: 25%;
+  width: 20%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   margin: 20px auto;
+  padding: 0 10px;
 }
 
 .product--back {
@@ -287,7 +263,7 @@ header {
 }
 
 .product--title {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   letter-spacing: 0.6px;
   font-weight: 550;
 }
@@ -314,13 +290,13 @@ header {
 }
 
 .product--desc {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 20px 0 10px 0;
   letter-spacing: 0.6px;
 }
 
 .product--price {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   margin: 10px 0;
   font-weight: 550;
 }
@@ -461,7 +437,7 @@ header {
 }
 
 .cart--empty {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin: 50px 0 20px 0;
 }
 
@@ -535,7 +511,7 @@ header {
 }
 
 .checkout--confirm {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin: 10px 0;
 }
 
@@ -559,7 +535,7 @@ header {
 }
 
 .error--container > * {
-  font-size: 2.4rem;
+  font-size: 2rem;
   color: #f24237;
 }
 

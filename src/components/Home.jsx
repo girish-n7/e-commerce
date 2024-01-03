@@ -17,7 +17,7 @@ export default function Home({ categoryContent }) {
 
   return (
     <div className="home--container">
-      <p className="home--category">SHOP BY CATEGORY:</p>
+      <p className="home--category">Shop by Category:</p>
       <div className="category--card__container">{categoryMap}</div>
     </div>
   );

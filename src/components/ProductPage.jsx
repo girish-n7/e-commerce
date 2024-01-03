@@ -78,8 +78,8 @@ export default function ProductPage({
             }}
           >
             {cart.some((item) => item.id === data.id)
-              ? "REMOVE FROM CART"
-              : "BUY/ADD"}
+              ? "Remove from cart"
+              : "Buy/Add"}
           </button>
           <button
             className="btn wishlist--btn"
@@ -93,8 +93,8 @@ export default function ProductPage({
             }}
           >
             {wishlist.some((wish) => wish.id === data.id)
-              ? "REMOVE FROM WISHLIST"
-              : "ADD TO WISHLIST"}
+              ? "Remove from wishlist"
+              : "Add to wishlist"}
           </button>
         </div>
       </div>
